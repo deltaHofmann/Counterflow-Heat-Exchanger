@@ -8,6 +8,8 @@ The main purpose of this project is to demonstrate the coupled effects of advect
 
 The resulting temperature field can be explored interactively using a heatmap, time slider and playback controls.
 
+![Temperature field](images/simulation.png)
+
 ## Physical Setup
 
 The simulated heat exchanger consists of two rectangular fluid channels separated by a thin wall.
