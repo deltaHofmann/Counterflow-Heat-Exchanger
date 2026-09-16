@@ -323,3 +323,7 @@ The numerical simulation is performed first. During the calculation, the progres
 After the calculation has finished, the interactive visualization opens automatically.
 
 The calculated temperature fields can then be explored using the time slider and playback controls.
+
+## Note
+
+ChatGPT was used as a supporting tool during the development of this project, mainly for coding assistance, debugging, documentation, and formatting. The implementation, testing, and integration of the project were carried out by the author.
