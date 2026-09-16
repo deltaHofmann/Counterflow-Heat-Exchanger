@@ -70,14 +70,7 @@ The current simulation uses the following parameters:
 The temperature evolution in the fluid regions is described by the transient advection-diffusion equation
 
 $$
-\rho c_p
-\left(
-\frac{\partial T}{\partial t}
-+
-\mathbf{u}\cdot\nabla T
-\right)
-=
-\nabla\cdot(k\nabla T).
+\rho c_p \left( \frac{\partial T}{\partial t} + \mathbf{u}\cdot\nabla T \right) = \nabla\cdot(k\nabla T).
 $$
 
 Here, $T$ denotes the temperature, $\rho$ the density, $c_p$ the specific heat capacity, $k$ the thermal conductivity and $\mathbf{u}$ the prescribed fluid velocity.
@@ -103,11 +96,7 @@ describes heat transport caused by temperature gradients.
 For the fluid regions, both contributions are present. In the wall, no fluid motion occurs and therefore the advection term vanishes. The temperature evolution in the copper wall is consequently described by
 
 $$
-\rho_w c_{p,w}
-\frac{\partial T}{\partial t}
-=
-\nabla\cdot(k_w\nabla T).
-$$
+\rho_w c_{p,w} \frac{\partial T}{\partial t} = \nabla\cdot(k_w\nabla T). $$
 
 The different material properties are assigned locally to the corresponding regions of the computational domain.
 
@@ -117,17 +106,7 @@ The geometry is discretized using a regular two-dimensional Cartesian grid.
 
 The second derivatives appearing in the diffusion term are approximated using central finite differences. For example, the second derivative in the $x$-direction is given by
 
-$$
-\frac{\partial^2 T}{\partial x^2}
-\approx
-\frac{
-T_{i+1,j}
--2T_{i,j}
-+T_{i-1,j}
-}{
-\Delta x^2
-}.
-$$
+$$ \frac{\partial^2 T}{\partial x^2} \approx \frac{ T_{i+1,j} -2T_{i,j} +T_{i-1,j} }{ \Delta x^2 }. $$
 
 The equivalent expression is used in the $y$-direction.
 
@@ -135,27 +114,11 @@ The advection term is discretized using an upwind scheme. This means that the te
 
 For the hot fluid, which flows from left to right, the upstream point is located to the left:
 
-$$
-\frac{\partial T}{\partial x}
-\approx
-\frac{
-T_{i,j}-T_{i-1,j}
-}{
-\Delta x
-}.
-$$
+$$ \frac{\partial T}{\partial x} \approx \frac{ T_{i,j}-T_{i-1,j} }{ \Delta x }. $$
 
 For the cold fluid, which flows from right to left, the upstream point is located to the right:
 
-$$
-\frac{\partial T}{\partial x}
-\approx
-\frac{
-T_{i+1,j}-T_{i,j}
-}{
-\Delta x
-}.
-$$
+$$ \frac{\partial T}{\partial x} \approx \frac{ T_{i+1,j}-T_{i,j} }{ \Delta x }. $$
 
 ## Time Integration
 
@@ -163,16 +126,7 @@ The temperature field is advanced in time using an explicit Euler scheme.
 
 After spatial discretization, the temperature update can be written as
 
-$$
-T^{n+1}
-=
-T^n
-+
-\Delta t
-\left(
-D^n+A^n
-\right),
-$$
+$$ T^{n+1} = T^n + \Delta t \left( D^n+A^n \right), $$
 
 where $D^n$ represents the discretized diffusion term and $A^n$ the discretized advection term.
 
@@ -182,9 +136,7 @@ The explicit formulation keeps the implementation relatively simple and makes th
 
 The hot fluid enters the heat exchanger from the left:
 
-$$
-T(x=0,y,t)=100\,^\circ\mathrm{C}.
-$$
+$$ T(x=0,y,t)=100\,^\circ\mathrm{C}. $$
 
 The cold fluid enters from the right:
 
